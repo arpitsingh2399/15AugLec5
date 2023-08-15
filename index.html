@@ -1,63 +1,47 @@
 <html>
 <head>
-<title> My App4 </title>
+<title> My App6 </title>
 <style>
 *{
-background-color : lightblue;
 font-size : 40px;
+font-family : Impact;
+}
+body 
+{
+background-color : lightyellow;}
  }
 </style>
 
 <script>
-  function show()
+  function sqrtFinder()
 {
   event.preventDefault();
+  let num = document.getElementById("num");
   let ans = document.getElementById("ans");
-  let name = document.getElementById("name");
+if(num.value == "")
+{
+alert("you did not enter any number");
+ans.innerHTML="";
+ans.focus();
+return;
 
-if(name.value == "")
-{
-ans.innerHTML = "you did not enter name"; 
 }
-else if(name.value.trim() == "")
-{
-ans.innerHTML = " you enter only spaces";
-}
-else if(! name.value.match(/^[A-Za-z ]+$/))
-{
-ans.innerHTML = "only alphabets allowed";
-}
-else
-{
-  let d = new Date();
-  let hr = d.getHours();
-  let a = "";
-  if(hr < 12 )
-{
-  a = "Good Morning";
-}
-else if (hr < 16)
-{
-a = "Good Afternoon";
-}
-else 
-a = " Good Evening";
-
-let msg = a + " " + name.value ;
-  ans.innerHTML = msg ;
-}
-
+let n = parseFloat(num.value);
+let r = Math.sqrt(n) ;
+ans.innerHTML = r.toFixed(2);
+  
+  
 }
 </script>
 </head>
 <body>
 <center>
-<h1> Welcome to my App </h1>
-<form onsubmit="show()">
+<h1> Welcome to SQRT Finder </h1>
+<form onsubmit="sqrtFinder()">
 
-<input type = "text" id ="name" placeholder = " enter your name" />
+<input type = "number" step=0.02 id ="num" placeholder = " enter your number" />
 <br><br>
-<input type = "submit" id = "button"  value = "Click me" />
+<input type = "submit"  value = "Find the ans" />
 
 </form>
 
